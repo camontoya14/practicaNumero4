@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("APIP4")]
+[assembly: AssemblyTitle("WEBP4")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("APIP4")]
+[assembly: AssemblyProduct("WEBP4")]
 [assembly: AssemblyCopyright("Copyright ©  2023")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("037f0e68-3663-4d1b-9389-f58222bfc5ae")]
+[assembly: Guid("b67fc917-4531-402b-b9cb-9dd85bfdaac0")]
 
 // Version information for an assembly consists of the following four values:
 //
