@@ -29,76 +29,31 @@
                     </button>
                     <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
                         <ul class="nav navbar-nav menu_nav ml-auto mr-auto">
-                            <li class="nav-item active"><a class="nav-link" href="index.html">Home</a></li>
+                            <li class="nav-item active"><a class="nav-link" href="@Url.Action("Index", "Home")">Inicio</a></li>
                             <li class="nav-item submenu dropdown">
                                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                                   aria-expanded="false">Formulario</a>
+                                   aria-expanded="false">Opciones</a>
                                 <ul class="dropdown-menu">
-                                    <li class="nav-item"><a class="nav-link" href="login.html">Consultar</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="register.html">Registrar</a></li>
+                                    <li class="nav-item"><a href="@Url.Action("ConsultarPrincipal", "Principal")" class=" nav-link">Consultar</a></li>
+                                    <li class="nav-item"><a href="@Url.Action("RegistrarAbonos", "Abonos")" class=" nav-link">Registrar abonos</a></li>
                                 </ul>
                             </li>
-                        </ul>
-
-                        <ul class="nav-shop">
-                            <li class="nav-item"><button><i class="ti-shopping-cart"></i><span class="nav-shop__circle">3</span></button> </li>
-                            <li class="nav-item"><a class="button button-header" href="#">Buy Now</a></li>
                         </ul>
                     </div>
                 </div>
             </nav>
         </div>
     </header>
-    <!--================ End Header Menu Area =================-->
 
     <main class="site-main">
+        <div class="row">
+            <div class="col-12">
+                @RenderBody()
+            </div>
 
-        <!--================ Hero banner start =================-->
-        <section class="hero-banner">
-            <div class="container">
-                <div class="row no-gutters align-items-center pt-60px">
-                    <div class="col-5 d-none d-sm-block">
-                        <div class="hero-banner__img">
-                            <img class="img-fluid" src="~/template/img/home/hero-banner.png" alt="">
-                        </div>
-                    </div>
-                    <div class="col-sm-7 col-lg-6 offset-lg-1 pl-4 pl-md-5 pl-lg-0">
-                        <div class="hero-banner__content">
-                            <h4>Comprar es divertido</h4>
-                            <h1>Bienvenido al inventario de productos</h1>
-                            <p>Aqui podras ver los formularios.</p>
-                            <a class="button button-hero" href="#">Buscar</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!--================ Hero banner start =================-->
-        <!--================ Hero Carousel start =================-->
-        <section class="section-margin mt-0">
-            <div class="owl-carousel owl-theme hero-carousel">
-                
-            </div>
-        </section>
-        <!--================ Hero Carousel end =================-->
-        <!-- ================ trending product section start ================= -->
-        <section class="section-margin calc-60px">
-            <div class="container">
-                <div class="section-intro pb-60px">
-                    <h2>Formularios <span class="section-intro__style"></span></h2>
-                </div>
-                <div class="row">
-                    @RenderBody()
-                </div>
-            </div>
-        </section>
-
-        <!-- ================ trending product section end ================= -->
-      
+        </div>
     </main>
 
-
-    <!--================ Start footer Area  =================-->
     <footer class="footer">
         <div class="footer-area">
             <div class="container">
@@ -179,18 +134,13 @@
             <div class="container">
                 <div class="row d-flex">
                     <p class="col-lg-12 footer-text text-center">
-                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                         Copyright &copy;
                         <script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                     </p>
                 </div>
             </div>
         </div>
     </footer>
-    <!--================ End footer Area  =================-->
-
-
 
     <script src="vendors/jquery/jquery-3.2.1.min.js"></script>
     <script src="vendors/bootstrap/bootstrap.bundle.min.js"></script>
