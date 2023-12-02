@@ -22,5 +22,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="RebajarSaldo" FunctionName="PracticaS12Model.Store.RebajarSaldo" />
   </EntityContainerMapping>
 </Mapping>

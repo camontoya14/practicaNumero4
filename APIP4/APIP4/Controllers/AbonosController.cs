@@ -47,5 +47,15 @@ namespace APIP4.Controllers
             }
         }
 
+        [HttpPost]
+        [Route("ActualizarSaldo")]
+        public string ActualizarSaldo(Abonos abonos)
+        {
+            using (var context = new PracticaS12Entities())
+            {
+                context.RebajarSaldo(abonos.Id_Compra, abonos.Monto);
+                return "OK";
+            }
+        }
     }
 }

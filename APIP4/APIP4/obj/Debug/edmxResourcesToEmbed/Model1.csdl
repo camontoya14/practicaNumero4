@@ -40,5 +40,9 @@
       <End Role="Principal" EntitySet="Principal" />
       <End Role="Abonos" EntitySet="Abonos" />
     </AssociationSet>
+    <FunctionImport Name="RebajarSaldo">
+      <Parameter Name="Id_Compra" Mode="In" Type="Int64" />
+      <Parameter Name="Monto" Mode="In" Type="Decimal" />
+    </FunctionImport>
   </EntityContainer>
 </Schema>

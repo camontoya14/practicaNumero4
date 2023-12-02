@@ -31,6 +31,10 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Function Name="RebajarSaldo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id_Compra" Type="bigint" Mode="In" />
+    <Parameter Name="Monto" Type="decimal" Mode="In" />
+  </Function>
   <EntityContainer Name="PracticaS12ModelStoreContainer">
     <EntitySet Name="Abonos" EntityType="Self.Abonos" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Principal" EntityType="Self.Principal" Schema="dbo" store:Type="Tables" />
