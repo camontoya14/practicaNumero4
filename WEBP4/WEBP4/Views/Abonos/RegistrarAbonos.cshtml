@@ -1,0 +1,47 @@
+﻿@model WEBP4.Entities.PrincipalEnt
+
+@{
+    ViewBag.Title = "RegistrarAbonos";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="col-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Información General</h4>
+
+            @if (ViewBag.MensajeUsuario != null)
+            {
+                <div class="alert alert-info" role="alert" style="text-align:center">
+                    @ViewBag.MensajeUsuario
+                </div>
+            }
+
+            @using (Html.BeginForm("ConsultarProductos", "Principal", FormMethod.Post, new { @class = "pt-3" }))
+            {
+
+                @Html.HiddenFor(m => m.Id_Compra)
+
+                <div class="form-group">
+                    <label>Compra</label>
+                    @if (ViewBag.Productos != null && ViewBag.Productos is List<SelectListItem>)
+                    {
+                        @Html.DropDownListFor(m => m.Id_Compra, ViewBag.Productos as List<SelectListItem>, new { @class = "form-control form-control-lg", @type = "text", @placeholder = "Productos" })
+                    }
+                    else
+                    {
+                        <p>Error: No se pudo cargar la lista de productos.</p>
+                    }
+                </div>
+
+                <div class="form-group">
+                    <label for="exampleInputEmail3">Saldo Anterior</label>
+                    @Html.TextBoxFor(m => m.Saldo, new { @readonly = "@readonly", style = "background-color:#eeeeee", @class = "form-control form-control-lg", @type = "text", placeholder = "Saldo" })
+                </div>
+
+                <button type="submit" class="btn btn-primary mr-2">Abonar</button>
+            }
+
+        </div>
+    </div>
+</div>
