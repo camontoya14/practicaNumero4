@@ -807,10 +807,10 @@
     <Content Include="template\vendors\themify-icons\fonts\themify.woff" />
     <Content Include="template\vendors\themify-icons\Themify IconFonts 5-23-2014.json" />
     <Content Include="Views\Principal\ConsultarPrincipal.cshtml" />
+    <Content Include="Views\Abonos\RegistrarAbonos.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Abonos\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.rtl.min.css.map" />

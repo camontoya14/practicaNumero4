@@ -1,0 +1,46 @@
+﻿@model WEBP4.Entities.AbonosEnt
+
+@{
+    ViewBag.Title = "RegistrarAbonos";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="col-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Información General</h4>
+
+            @if (ViewBag.MensajeUsuario != null)
+            {
+                <div class="alert alert-info" role="alert" style="text-align:center">
+                    @ViewBag.MensajeUsuario
+                </div>
+            }
+
+            @using (Html.BeginForm("MostrarPrincipal", "Abonos", FormMethod.Post, new { @class = "pt-3" }))
+            {
+
+                @Html.HiddenFor(m => m.Id_Abono)
+
+                <div class="form-group">
+                    <label for="exampleInputPassword4">Compra</label>
+                    @Html.DropDownListFor(m => m.Id_Compra, ViewBag.Productos as List<SelectListItem>, new { @class = "form-control form-control-lg", @type = "text", @placeholder = "Productos" })
+                </div>
+
+                <div class="form-group">
+                    <label for="exampleInputEmail3">Saldo Anterior</label>
+                    @Html.TextBoxFor(m => m.principalEnt.Saldo, new { @readonly = "@readonly", style = "background-color:#eeeeee", @class = "form-control form-control-lg", @type = "text", placeholder = "Saldo" })
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword4">Abono</label>
+                    @Html.TextBoxFor(m => m.Monto, new { @class = "form-control form-control-lg", @type = "text", @placeholder = "Abono" })
+                </div>
+
+
+                <button type="submit" class="btn btn-primary mr-2">Procesar</button>
+            }
+
+        </div>
+    </div>
+</div>
+

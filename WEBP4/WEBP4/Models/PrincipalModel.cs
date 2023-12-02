@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
 using System.Net.Http;
+using System.Net.Http.Json;
 using System.Web;
 using WEBP4.Entities;
 
@@ -17,7 +18,7 @@ namespace WEBP4.Models
             {
                 var url = urlApi + "ConsultarPrincipal";
                 var res = client.GetAsync(url).Result;
-                return res.Content.ReadAsStringAsync<List<PrincipalEnt>>().Result;
+                return res.Content.ReadFromJsonAsync<List<PrincipalEnt>>().Result;
             }
         }
     }
