@@ -20,5 +20,31 @@ namespace APIP4.Controllers
                 return "OK";
             }
         }
+
+        [HttpGet]
+        [Route("ConsultarProductos")]
+        public List<System.Web.Mvc.SelectListItem> ConsultarProductos()
+        {
+            try
+            {
+                using (var context = new PracticaS12Entities())
+                {
+                    var datos = (from x in context.Principal
+                                 select x).ToList();
+
+                    var respuesta = new List<System.Web.Mvc.SelectListItem>();
+                    foreach (var item in datos)
+                    {
+                        respuesta.Add(new System.Web.Mvc.SelectListItem { Value = item.Id_Compra.ToString(), Text = item.Descripcion });
+                    }
+
+                    return respuesta;
+                }
+            }
+            catch (Exception)
+            {
+                return new List<System.Web.Mvc.SelectListItem>();
+            }
+        }
     }
 }

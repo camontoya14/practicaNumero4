@@ -11,5 +11,7 @@ namespace WEBP4.Entities
         public long Id_Abono { get; set; }
         public decimal Monto { get; set; }
         public DateTime Fecha { get; set; }
+        public PrincipalEnt principalEnt {  get; set; } 
     }
+
 }

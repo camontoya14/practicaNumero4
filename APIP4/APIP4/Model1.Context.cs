@@ -12,6 +12,8 @@ namespace APIP4
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using System.Data.Entity.Core.Objects;
+    using System.Linq;
     
     public partial class PracticaS12Entities : DbContext
     {
@@ -27,5 +29,14 @@ namespace APIP4
     
         public virtual DbSet<Abonos> Abonos { get; set; }
         public virtual DbSet<Principal> Principal { get; set; }
+    
+        public virtual ObjectResult<ObtenerSaldo_Result> ObtenerSaldo(Nullable<long> idCompra)
+        {
+            var idCompraParameter = idCompra.HasValue ?
+                new ObjectParameter("IdCompra", idCompra) :
+                new ObjectParameter("IdCompra", typeof(long));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<ObtenerSaldo_Result>("ObtenerSaldo", idCompraParameter);
+        }
     }
 }

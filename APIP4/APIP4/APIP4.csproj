@@ -188,6 +188,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Model1.edmx</DependentUpon>
     </Compile>
+    <Compile Include="ObtenerSaldo_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Principal.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
