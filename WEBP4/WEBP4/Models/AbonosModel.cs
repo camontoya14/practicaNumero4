@@ -1,8 +1,5 @@
-﻿using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Configuration;
-using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Json;
 using System.Web;
@@ -34,5 +31,6 @@ namespace WEBP4.Models
                 return resp.Content.ReadFromJsonAsync<List<SelectListItem>>().Result;
             }
         }
+
     }
 }

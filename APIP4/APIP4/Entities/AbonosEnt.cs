@@ -11,5 +11,6 @@ namespace APIP4.Entities
         public long Id_Abono { get; set; }
         public decimal Monto { get; set; }
         public DateTime Fecha { get; set; }
+        public string Descripcion { get; set; }
     }
 }

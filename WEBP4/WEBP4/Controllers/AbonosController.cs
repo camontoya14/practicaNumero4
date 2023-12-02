@@ -10,21 +10,15 @@ namespace WEBP4.Controllers
     public class AbonosController : Controller
     {
 
-        PrincipalController principalModelito = new PrincipalController();
+        AbonosModel abonosModel = new AbonosModel();
 
         [HttpGet]
         public ActionResult RegistrarAbonos()
         {
-            return View();
-        }
 
-        [HttpGet]
-        public ActionResult MostrarPrincipal()
-        {
-            long Id_Compra = long.Parse(Session["Id_Compra"].ToString());
-            ViewBag.Productos = principalModelito.ConsultarPrincipal();
-            var datos = principalModelito.ConsultarPrincipal();
-            return View(datos);
+            ViewBag.Productos = abonosModel.ConsultarProductos();
+            return View();
+
         }
     }
 }

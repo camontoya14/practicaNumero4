@@ -176,3 +176,23 @@ D:\Proyectos .NET\Practica#4\practicaNumero4\WEBP4\WEBP4\obj\Debug\WEBP4.csproj.
 D:\Proyectos .NET\Practica#4\practicaNumero4\WEBP4\WEBP4\obj\Debug\WEBP4.csproj.CopyComplete
 D:\Proyectos .NET\Practica#4\practicaNumero4\WEBP4\WEBP4\obj\Debug\WEBP4.dll
 D:\Proyectos .NET\Practica#4\practicaNumero4\WEBP4\WEBP4\obj\Debug\WEBP4.pdb
+C:\Users\fidelitas\source\repos\PracticaNumero4\WEBP4\WEBP4\bin\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\fidelitas\source\repos\PracticaNumero4\WEBP4\WEBP4\bin\System.Buffers.dll
+C:\Users\fidelitas\source\repos\PracticaNumero4\WEBP4\WEBP4\bin\System.Memory.dll
+C:\Users\fidelitas\source\repos\PracticaNumero4\WEBP4\WEBP4\bin\System.Net.Http.Json.dll
+C:\Users\fidelitas\source\repos\PracticaNumero4\WEBP4\WEBP4\bin\System.Numerics.Vectors.dll
+C:\Users\fidelitas\source\repos\PracticaNumero4\WEBP4\WEBP4\bin\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\fidelitas\source\repos\PracticaNumero4\WEBP4\WEBP4\bin\System.Text.Encodings.Web.dll
+C:\Users\fidelitas\source\repos\PracticaNumero4\WEBP4\WEBP4\bin\System.Text.Json.dll
+C:\Users\fidelitas\source\repos\PracticaNumero4\WEBP4\WEBP4\bin\System.Threading.Tasks.Extensions.dll
+C:\Users\fidelitas\source\repos\PracticaNumero4\WEBP4\WEBP4\bin\System.ValueTuple.dll
+C:\Users\fidelitas\source\repos\PracticaNumero4\WEBP4\WEBP4\bin\Microsoft.Bcl.AsyncInterfaces.xml
+C:\Users\fidelitas\source\repos\PracticaNumero4\WEBP4\WEBP4\bin\System.Buffers.xml
+C:\Users\fidelitas\source\repos\PracticaNumero4\WEBP4\WEBP4\bin\System.Memory.xml
+C:\Users\fidelitas\source\repos\PracticaNumero4\WEBP4\WEBP4\bin\System.Net.Http.Json.xml
+C:\Users\fidelitas\source\repos\PracticaNumero4\WEBP4\WEBP4\bin\System.Numerics.Vectors.xml
+C:\Users\fidelitas\source\repos\PracticaNumero4\WEBP4\WEBP4\bin\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\fidelitas\source\repos\PracticaNumero4\WEBP4\WEBP4\bin\System.Text.Encodings.Web.xml
+C:\Users\fidelitas\source\repos\PracticaNumero4\WEBP4\WEBP4\bin\System.Text.Json.xml
+C:\Users\fidelitas\source\repos\PracticaNumero4\WEBP4\WEBP4\bin\System.Threading.Tasks.Extensions.xml
+C:\Users\fidelitas\source\repos\PracticaNumero4\WEBP4\WEBP4\bin\System.ValueTuple.xml

@@ -18,19 +18,6 @@ namespace WEBP4.Controllers
             return View(datos);
         }
 
-        [HttpGet]
-        public ActionResult ConsultarProductos()
-        {
-            try
-            {
-                var datos = principalModel.ConsultarProductos();
-                ViewBag.Productos = datos;
-                return View();
-            }
-            catch (Exception ex)
-            {
-                return View();
-            }
-        }
+    
     }
 }

@@ -12,6 +12,5 @@ namespace WEBP4.Entities
         public decimal Saldo { get; set; }
         public string Descripcion { get; set; }
         public string Estado { get; set; }
-        public AbonosEnt abonosEnt { get; set; }
     }
 }

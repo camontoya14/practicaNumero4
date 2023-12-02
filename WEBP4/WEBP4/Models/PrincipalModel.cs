@@ -5,6 +5,7 @@ using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Json;
 using System.Web;
+using System.Web.Mvc;
 using WEBP4.Entities;
 
 namespace WEBP4.Models
@@ -21,13 +22,23 @@ namespace WEBP4.Models
                 return res.Content.ReadFromJsonAsync<List<PrincipalEnt>>().Result;
             }
         }
-        public List<PrincipalEnt> ConsultarProductos()
+        //public List<PrincipalEnt> ConsultarProductos()
+        //{
+        //    using (var client = new HttpClient())
+        //    {
+        //        var url = urlApi + "ConsultarProductos";
+        //        var res = client.GetAsync(url).Result;
+        //        return res.Content.ReadFromJsonAsync<List<PrincipalEnt>>().Result;
+        //    }
+        //}
+
+        public List<SelectListItem> ConsultarProductos()
         {
             using (var client = new HttpClient())
             {
-                var url = urlApi + "ConsultarProductos";
-                var res = client.GetAsync(url).Result;
-                return res.Content.ReadFromJsonAsync<List<PrincipalEnt>>().Result;
+                string url = urlApi + "ConsultarProductos";
+                var resp = client.GetAsync(url).Result;
+                return resp.Content.ReadFromJsonAsync<List<SelectListItem>>().Result;
             }
         }
 
