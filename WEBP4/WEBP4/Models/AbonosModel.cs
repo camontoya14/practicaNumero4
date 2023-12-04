@@ -22,17 +22,6 @@ namespace WEBP4.Models
             }
         }
 
-        public string ActualizarSaldo(AbonosEnt entidad)
-        {
-            using (var client = new HttpClient())
-            {
-                string url = urlApi + "ActualizarSaldo";
-                JsonContent contenido = JsonContent.Create(entidad);
-                var resp = client.PostAsync(url, contenido).Result;
-                return resp.Content.ReadFromJsonAsync<string>().Result;
-            }
-        }
-
         public List<SelectListItem> ConsultarProductos()
         {
             using (var client = new HttpClient())
@@ -43,5 +32,15 @@ namespace WEBP4.Models
             }
         }
 
+        public string ObtenerSaldo(AbonosEnt abonos)
+        {
+            using (var client = new HttpClient())
+            {
+                var url = urlApi + "ObtenerSaldo";
+                JsonContent contenido = JsonContent.Create(abonos);
+                var resp = client.PostAsync(url, contenido).Result;
+                return resp.Content.ReadFromJsonAsync<string>().Result;
+            }
+        }
     }
 }
