@@ -1,5 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
+using System.Net.Http;
 using System.Reflection;
 using System.Web.Mvc;
 using WEBP4.Entities;
@@ -12,42 +15,23 @@ namespace WEBP4.Controllers
 
         AbonosModel abonosModel = new AbonosModel();
 
-        //[HttpGet]
-        //public ActionResult RegistrarAbonos(AbonosEnt abonos)
-        //{
-        //    ViewBag.Productos = abonosModel.ConsultarProductos();
-
-        //    long IdCompra = ViewBag.Productos.Count > 0 ? long.Parse(ViewBag.Productos[0].Value) : 0;
-
-        //    AbonosEnt primerAbonos = new AbonosEnt { Id_Compra = IdCompra };
-        //    abonos.Saldo = decimal.Parse(abonosModel.ObtenerSaldo(primerAbonos));
-
-        //    return View(abonos);
-        //}
-
         [HttpGet]
         public ActionResult RegistrarAbonos()
         {
-            AbonosEnt abonos = new AbonosEnt();
-            abonos.Productos = abonosModel.ConsultarProductos();
-
-            return View(abonos);
+            ViewBag.Productos = abonosModel.ConsultarProductos();
+            return View();
         }
 
         [HttpPost]
-        public ActionResult RegistrarAbonos(AbonosEnt abonos, string submitButton)
+        public ActionResult RegistrarAbonos(AbonosEnt abonos)
         {
-            abonos.Productos = abonosModel.ConsultarProductos();
 
-            if (submitButton == "Ver")
+            ViewBag.Productos = abonosModel.ConsultarProductos();
+
+            if (abonos.Id_Compra != 0 && abonos.Monto > 0)
             {
-                // Acceder directamente al valor seleccionado en Id_Compra
-                long IdCompraSeleccionado = abonos.Id_Compra;
-                abonos.principal.Saldo = decimal.Parse(abonosModel.ObtenerSaldo(new AbonosEnt { Id_Compra = IdCompraSeleccionado }));
-            }
-            else if (submitButton == "Abonar")
-            {
-                return View("ConsultarPrincipal", "Principal");
+                string resultadoAbono = abonosModel.ActualizarSaldo(abonos.Id_Compra, abonos.Monto);
+                ViewBag.MensajeUsuario = resultadoAbono;
             }
 
             return View(abonos);

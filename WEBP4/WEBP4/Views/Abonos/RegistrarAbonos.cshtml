@@ -17,60 +17,57 @@
                     </div>
                 }
 
-                @*@using (Html.BeginForm("RegistrarAbonos", "Abonos", FormMethod.Post, new { @class = "pt-3" }))
-        {
-            <div>
-                @Html.HiddenFor(m => m.Id_Compra)
-
-                <div class="form-group">
-                    <label>Compra</label>
-                    @Html.DropDownListFor(m => m.Descripcion, ViewBag.Productos as List<SelectListItem>, new { @class = "form-control form-control-lg", @type = "text", @placeholder = "Productos", @id = "ProductosDropdown" })
-                </div>
-
-                <div class="form-group">
-                    <label>Saldo</label>
-                    @Html.TextBoxFor(m => m.Saldo, new { @readonly = "readonly", @class = "form-control form-control-lg", @type = "text", @placeholder = "Saldo", @id = "Saldo" })
-                </div>
-
-                <div class="form-group">
-                    <label>Abono</label>
-                    @Html.TextBoxFor(m => m.Monto, new { @class = "form-control form-control-lg", @type = "text", placeholder = "Indique el monto a abonar" })
-                </div>
-
-                <button type="submit" class="btn btn-secondary mr-2">Abonar</button>
-            </div>
-        }*@
-
                 @using (Html.BeginForm("RegistrarAbonos", "Abonos", FormMethod.Post, new { @class = "pt-3" }))
                 {
+                    @Html.HiddenFor(m => m.Id_Compra, new { id = "hdnIdCompraDirecto" })
+
                     <div class="form-group">
                         <label>Compra</label>
                         <div class="row">
                             <div class="col-11">
-                                @Html.DropDownListFor(m => m.Id_Compra, Model.Productos, new { @class = "form-control form-control-lg", @id = "ProductosDropdown" })
-                            </div>
-                            <div class="col-1">
-                                <button type="submit" name="submitButton" value="Ver">Ver</button>
+                                @Html.DropDownListFor(m => m.Id_Compra, ViewBag.Productos as List<SelectListItem>, new { @class = "form-control form-control-lg", @id = "ProductosDropdown" })
                             </div>
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label>Saldo</label>
-                        @Html.TextBoxFor(m => m.principal.Saldo, new { @readonly = "readonly", @class = "form-control form-control-lg", @type = "text", @placeholder = "Saldo disponible", @id = "Saldo" })
+                        <input class="form-control form-control-lg" type="text" id="saldo" name="saldo" readonly />
                     </div>
-
-                    @Html.HiddenFor(m => m.Id_Compra)
 
                     <div class="form-group">
                         <label>Abono</label>
                         @Html.TextBoxFor(m => m.Monto, new { @class = "form-control form-control-lg", @type = "text", placeholder = "Indique el monto a abonar" })
                     </div>
 
-                    <button type="submit" class="btn btn-secondary mr-2">Abonar</button>
+                    <button type="submit" name="submitButton" class="btn btn-secondary mr-2" value="Abonar">Abonar</button>
                 }
 
             </div>
         </div>
     </div>
 </div>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#ProductosDropdown').change(function () {
+            var selectedValue = $(this).val();
+            var values = selectedValue.split('_');
+            var idCompra = values[0];
+
+            $('#hdnIdCompraDirecto').val(idCompra);
+            console.log('Valor de Id_Compra:', idCompra);
+
+            actualizarSaldo();
+        });
+
+        function actualizarSaldo() {
+            var selectedValue = $('#ProductosDropdown').val();
+            var values = selectedValue.split('_');
+            var saldo = values[1];
+            $('#saldo').val(saldo);
+        }
+
+        actualizarSaldo();
+    });
+</script>

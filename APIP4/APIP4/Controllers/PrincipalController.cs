@@ -19,6 +19,5 @@ namespace APIP4.Controllers
                 return context.Principal.ToList();
             }
         }
-
     }
 }

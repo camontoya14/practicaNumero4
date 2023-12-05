@@ -17,7 +17,5 @@ namespace WEBP4.Controllers
             var datos = principalModel.ConsultarPrincipal();
             return View(datos);
         }
-
-    
     }
 }

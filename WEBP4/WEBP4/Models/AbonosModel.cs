@@ -1,7 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using Newtonsoft.Json;
+using System.Collections.Generic;
 using System.Configuration;
+using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Json;
+using System.Text;
+using System.Text.Json;
 using System.Web;
 using System.Web.Mvc;
 using WEBP4.Entities;
@@ -11,16 +15,6 @@ namespace WEBP4.Models
     public class AbonosModel
     {
         public string urlApi = ConfigurationManager.AppSettings["urlApi"];
-        public string RegistrarAbonos(AbonosEnt entidad)
-        {
-            using (var client = new HttpClient())
-            {
-                string url = urlApi + "RegistrarAbonos";
-                JsonContent contenido = JsonContent.Create(entidad);
-                var resp = client.PostAsync(url, contenido).Result;
-                return resp.Content.ReadFromJsonAsync<string>().Result;
-            }
-        }
 
         public List<SelectListItem> ConsultarProductos()
         {
@@ -32,15 +26,17 @@ namespace WEBP4.Models
             }
         }
 
-        public string ObtenerSaldo(AbonosEnt abonos)
+        public string ActualizarSaldo(long Id_Compra, decimal Monto)
         {
             using (var client = new HttpClient())
             {
-                var url = urlApi + "ObtenerSaldo";
-                JsonContent contenido = JsonContent.Create(abonos);
-                var resp = client.PostAsync(url, contenido).Result;
-                return resp.Content.ReadFromJsonAsync<string>().Result;
+                string url = urlApi + "ActualizarSaldo";
+                var data = new { Id_Compra, Monto };
+                var content = JsonContent.Create(data);
+                var response = client.PostAsync(url, content).Result;
+                return response.Content.ReadAsStringAsync().Result;
             }
         }
+
     }
 }

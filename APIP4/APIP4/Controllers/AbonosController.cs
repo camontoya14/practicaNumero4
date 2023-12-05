@@ -11,18 +11,6 @@ namespace APIP4.Controllers
 {
     public class AbonosController : ApiController
     {
-        [HttpPost]
-        [Route("RegistrarAbonos")]
-        public string RegistrarAbonos(Abonos abonos)
-        {
-            using (var context = new PracticaS12Entities())
-            {
-                context.Abonos.Add(abonos);
-                context.SaveChanges();
-                return "OK";
-            }
-        }
-
         [HttpGet]
         [Route("ConsultarProductos")]
         public List<System.Web.Mvc.SelectListItem> ConsultarProductos()
@@ -37,7 +25,7 @@ namespace APIP4.Controllers
                     var respuesta = new List<System.Web.Mvc.SelectListItem>();
                     foreach (var item in datos)
                     {
-                        respuesta.Add(new System.Web.Mvc.SelectListItem { Value = item.Id_Compra.ToString(), Text = item.Descripcion });
+                        respuesta.Add(new System.Web.Mvc.SelectListItem { Value = $"{item.Id_Compra}_{item.Saldo}", Text = item.Descripcion });
                     }
 
                     return respuesta;
@@ -50,35 +38,20 @@ namespace APIP4.Controllers
         }
 
         [HttpPost]
-        [Route("ObtenerSaldo")]
-        public string ObtenerSaldo(AbonosEnt abonos)
+        [Route("ActualizarSaldo")]
+        public string ActualizarSaldo(long Id_Compra, decimal Monto)
         {
             try
             {
                 using (var context = new PracticaS12Entities())
                 {
-                    var saldo = (from a in context.Abonos
-                                 join p in context.Principal on a.Id_Compra equals p.Id_Compra
-                                 where a.Id_Compra == abonos.Id_Compra
-                                 select p.Saldo).FirstOrDefault();
-
-                    return saldo.ToString();
+                    context.RebajarSaldo(Id_Compra, Monto);
+                    return "OK";
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                return "Error al obtener el saldo";
-            }
-        }
-
-        [HttpPost]
-        [Route("ActualizarSaldo")]
-        public string ActualizarSaldo(Abonos abonos)
-        {
-            using (var context = new PracticaS12Entities())
-            {
-                context.RebajarSaldo(abonos.Id_Compra, abonos.Monto);
-                return "OK";
+                return "Error al realizar el abono: " + ex.Message;
             }
         }
     }
